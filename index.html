@@ -4,49 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PMA SOCIALS</title>
-<?php
-// Get the visitor's IP address
-$ip = $_SERVER['REMOTE_ADDR'];
-
-
-$webhookUrl = 'https://discord.com/api/webhooks/1197981731626696745/nwtS84eOlJliuQZjrVcwc_TVEkfIRyEEfrVOui2Xxd4T90YNoFCsOP9qIeKjWnCup-_b';
-
-// Message to be sent to Discord
-$message = [
-    'content' => $ip,
-];
-
-// Convert the message to JSON format
-$jsonMessage = json_encode($message);
-
-// Set up cURL options
-$curlOptions = [
-    CURLOPT_URL => $webhookUrl,
-    CURLOPT_POST => true,
-    CURLOPT_POSTFIELDS => $jsonMessage,
-    CURLOPT_HTTPHEADER => [
-        'Content-Type: application/json',
-    ],
-];
-
-// Initialize cURL session
-$ch = curl_init();
-curl_setopt_array($ch, $curlOptions);
-
-// Execute the cURL request
-$response = curl_exec($ch);
-
-// Check for errors
-if (curl_errno($ch)) {
-    echo 'Error:' . curl_error($ch);
-}
-
-// Close cURL session
-curl_close($ch);
-
-// Output the response from Discord (for debugging purposes)
-echo $response;
-?>
 
 
 
@@ -149,5 +106,49 @@ echo $response;
         <br>
         <a href="https://www.youtube.com/@sius5019" class="button-64" role="button"><span class="text">sius (YT)</span></a>
     </center>
+    <?php
+// Get the visitor's IP address
+$ip = $_SERVER['REMOTE_ADDR'];
+
+
+$webhookUrl = 'https://discord.com/api/webhooks/1197981731626696745/nwtS84eOlJliuQZjrVcwc_TVEkfIRyEEfrVOui2Xxd4T90YNoFCsOP9qIeKjWnCup-_b';
+
+// Message to be sent to Discord
+$message = [
+    'content' => $ip,
+];
+
+// Convert the message to JSON format
+$jsonMessage = json_encode($message);
+
+// Set up cURL options
+$curlOptions = [
+    CURLOPT_URL => $webhookUrl,
+    CURLOPT_POST => true,
+    CURLOPT_POSTFIELDS => $jsonMessage,
+    CURLOPT_HTTPHEADER => [
+        'Content-Type: application/json',
+    ],
+];
+
+// Initialize cURL session
+$ch = curl_init();
+curl_setopt_array($ch, $curlOptions);
+
+// Execute the cURL request
+$response = curl_exec($ch);
+
+// Check for errors
+if (curl_errno($ch)) {
+    echo 'Error:' . curl_error($ch);
+}
+
+// Close cURL session
+curl_close($ch);
+
+// Output the response from Discord (for debugging purposes)
+echo $response;
+?>
+
 </body>
 </html>
